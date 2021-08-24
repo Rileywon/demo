@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riley Won</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Besley:ital@1&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        width: 100%;
+        background-color: white;
+    }
+
+    header {
+        background-color: lightgrey;
+        padding: 6px;
+        text-align: center;
+    }
+
+    footer {
+       background-image: url(http://www.uplevo.com/img/designbox/anh-bia-facebook-dep-troi-sao.jpg);
+        width: 100%;
+        border: solid 2px white;
+    }
+
+    .anh {
+
+        min-width: 23%;
+        border: 1px solid whitesmoke;
+        padding: 5px;
+        
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        box-sizing: border-box;
+    }
+
+    .imgs {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .img {
+        
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        
+    }
+    input{
+        border: none;
+        margin-top: 10px;
+        width: 200px;
+        height: 20px;
+        border-radius:5px;
+        background-color: whitesmoke;
+    }
+    input:focus{
+        outline: none;
+    }
+    .name {
+        color: whitesmoke;
+        font-family: 'Besley', serif;
+        font-size: 18px;
+        font-weight: 1000;
+        margin-left: 10px;
+    }
+    h1{
+        font-family: 'Besley', serif;
+        font-size: 30px;
+        font-weight: 1400;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>ATN COMPANY</h1>
+        <form action="/insert" method="post">
+            Name <input type="text" name="txtName">
+            <br>
+            Picture <input type="text" name="txtPicture">
+            <br>
+
+            <input type="submit" value="Insert">
+        </form>
+    </header>
+
+    <footer>
+        <form action="/search" method="post">
+            Name <input type="text" name="txtSearch">
+            <input type="submit" value="Search">
+
+            <div class="img" >
+                {{#each data}}
+
+                <div class="anh" style="margin-top: 10px; margin-left:15px;">
+                    <span class="name">{{name}}</span>
+                    <div class="imgs"><img src="{{picture}}" width="350" height="300"></div>
+                    <a href="/delete?id={{_id}}" class="text-primary none">Delete</a>
+                </div>
+                {{/each}}
+            </div>
+
+
+
+        </form>
+    </footer>
+
+</body>
+
+</html>
